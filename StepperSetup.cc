@@ -25,7 +25,6 @@ void setup()
     for (int n = 0; n < numberOfSteps; n++)
     {
         digitalWrite(stepPin, HIGH);
-        // delayMicroseconds(pulseWidthMicros); // this line is probably unnecessary
         digitalWrite(stepPin, LOW);
 
         delay(millisbetweenSteps);
