@@ -1,4 +1,5 @@
 # Robo-Arm
+
 6 jointed arm and controller <br />
 Project based on https://www.youtube.com/watch?v=wI4Jh-T0Tlo&t=794s with added mirrored controller variation <br />
 
@@ -22,14 +23,12 @@ Nema 8 Bipolar 1.6Ncm/2.3oz.in 1.8deg 28mm 0.2A <br />
 6002-2RS Bearing (x4) <br />
 5mm Aluminum Rod <br />
 GT2 Belts <br />
-10k Ohm Potentiometers <br />
+10k Ohm Potentiometers (x6) <br />
 Variety of M3, M4, and M8 bolts (M8 for the stand) <br />
-Micro Limit swithces (preferably ones with with a wheel) <br/>
+Micro Limit switches (preferably ones with a wheel) <br/>
 
 # Assembly
 
-It is recommened to set up stepper motors with the code prior to assembly to ensure they are moving in the correct directions. Failure to do so can result in broken parts or torn timing belts. <br/>
+Setting up stepper motors with the code before assembly is recommended to ensure they are moving in the correct direction. Failure to do so can result in broken parts or torn timing belts. <br/>
 
-To cut and connect GT2 Timing belts to correct lengths, use a piece of patching cloth and super glue. This can be demonstrated here.
-
-
+Use a piece of patching cloth and super glue to cut and connect GT2 Timing belts to the correct lengths. This can be demonstrated here (https://www.youtube.com/watch?v=T9wjR0HEk3I). <br/>
