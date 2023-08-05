@@ -6,6 +6,7 @@ Project based on https://www.youtube.com/watch?v=wI4Jh-T0Tlo&t=794s with added m
 Reference for 3D prints <br />
 Arm - https://www.dropbox.com/s/gp74rmva8efm28f/Arduino%20robot%20arm%20files%20%2B%20step.zip?dl=0&file_subpath=%2FArduino+robot+arm+files+%2B+step (altered parts are in AlteredArm folder, some parts will need to be drilled or dremeled to fit) <br />
 Controller - https://github.com/BuildSomeStuff/CompactRoboticArm/blob/main/P.O.T.%20Arm%20Controller%20-%20STL.stl (Updated controller with 6th axis and pen in /Models/Controller) <br />
+Claw - In /Models/Claw
 
 # Parts
 
