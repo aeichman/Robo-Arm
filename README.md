@@ -34,3 +34,9 @@ Stepper motor expansion board <br />
 Setting up stepper motors with the code before assembly is recommended to ensure they are moving in the correct direction. Failure to do so can result in broken parts or torn timing belts. <br/>
 
 Use a piece of patching cloth and super glue to cut and connect GT2 Timing belts to the correct lengths. This can be demonstrated here (https://www.youtube.com/watch?v=T9wjR0HEk3I). <br/>
+
+# Code
+
+Test each individal stepper motor driver with StepperSetup.cc <br/>
+
+If a stepper motor is moving in the opposite direction from poteniometer, unplug the motor and plug it in backwards <br/>
