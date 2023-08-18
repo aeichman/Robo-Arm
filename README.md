@@ -25,8 +25,9 @@ Nema 8 Bipolar 1.6Ncm/2.3oz.in 1.8deg 28mm 0.2A <br />
 5mm Aluminum Rod <br />
 GT2 Belts <br />
 10k Ohm Potentiometers (x6) <br />
-Variety of M3, M4, and M8 bolts (M8 for the stand) <br />
+Variety of M3, M4, and M8 bolts <br />
 Micro Limit switches (preferably ones with a wheel) <br/>
+Stepper motor expansion board <br />
 
 # Assembly
 
