@@ -34,6 +34,7 @@
 
 #define BUTTON_PIN 25
 
+// Can vary depending on microstepping settings
 #define STEPS_PER_REV_X 6400
 #define STEPS_PER_REV_Y 15000
 #define STEPS_PER_REV_Z 6400
@@ -75,8 +76,8 @@ void mySetup()
     stepperE1.setAcceleration(3000);
     stepperE2.setMaxSpeed(3000);
     stepperE2.setAcceleration(1000);
-    stepperC.setMaxSpeed(4000);
-    stepperC.setAcceleration(5000);
+    stepperC.setMaxSpeed(2000);
+    stepperC.setAcceleration(2500);
 
     pinMode(X_ENABLE_PIN, OUTPUT);
     digitalWrite(X_ENABLE_PIN, LOW);
@@ -92,7 +93,7 @@ void mySetup()
     digitalWrite(C_ENABLE_PIN, LOW);
     pinMode(BUTTON_PIN, INPUT_PULLUP);
 
-    // Set the initial positions of the stepper motors to 0 Change possible for homing
+    // Set the initial positions of the stepper motors to 0 change for homing
     stepperX.setCurrentPosition(0);
     stepperY.setCurrentPosition(0);
     stepperZ.setCurrentPosition(0);
