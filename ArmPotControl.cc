@@ -34,6 +34,7 @@
 #define E2_POT_PIN A4
 
 #define BUTTON_PIN 25
+#define Y_LIMIT_PIN 14
 
 // Can vary depending on microstepping settings
 #define STEPS_PER_REV_X 6400
@@ -64,13 +65,19 @@ Bounce button = Bounce();
 bool motorRunning = false;
 bool lastButtonState = HIGH;
 
+int prevXPotValue = 0;
+int prevYPotValue = 0;
+int prevZPotValue = 0;
+int prevE1PotValue = 0;
+int prevE2PotValue = 0;
+
 void mySetup()
 {
 
-    stepperX.setMaxSpeed(4000);     // Maximum speed in steps per second
-    stepperX.setAcceleration(2000); // Acceleration in steps per second^2
-    stepperY.setMaxSpeed(40000);
-    stepperY.setAcceleration(10000);
+    stepperX.setMaxSpeed(8000);     // Maximum speed in steps per second
+    stepperX.setAcceleration(4000); // Acceleration in steps per second^2
+    stepperY.setMaxSpeed(35000);
+    stepperY.setAcceleration(20000);
     stepperZ.setMaxSpeed(4000);
     stepperZ.setAcceleration(1000);
     stepperE1.setMaxSpeed(6000);
@@ -93,6 +100,7 @@ void mySetup()
     pinMode(C_ENABLE_PIN, OUTPUT);
     digitalWrite(C_ENABLE_PIN, LOW);
     pinMode(BUTTON_PIN, INPUT_PULLUP);
+    pinMode(Y_LIMIT_PIN, INPUT_PULLUP);
 
     // Set the initial positions of the stepper motors to 0 change for homing
     stepperX.setCurrentPosition(0);
@@ -119,23 +127,65 @@ void loop()
     int e1PotValue = analogRead(E1_POT_PIN);
     int e2PotValue = analogRead(E2_POT_PIN);
 
-    int xTargetPosition = map(xPotValue, 0, 1023, 0, STEPS_PER_REV_X);
-    int yTargetPosition = map(yPotValue, 0, 1023, 0, STEPS_PER_REV_Y);
-    int zTargetPosition = map(zPotValue, 0, 1023, 0, STEPS_PER_REV_Z);
-    int e1TargetPosition = map(e1PotValue, 0, 1023, 0, STEPS_PER_REV_E1);
-    int e2TargetPosition = map(e2PotValue, 0, 1023, 0, STEPS_PER_REV_E2);
+    if (xPotValue != prevXPotValue)
+    {
+        int xTargetPosition = map(xPotValue, 0, 1023, 0, STEPS_PER_REV_X);
+        stepperX.moveTo(xTargetPosition);
+        prevXPotValue = xPotValue;
+    }
 
-    stepperX.moveTo(xTargetPosition);
-    stepperY.moveTo(yTargetPosition);
-    stepperZ.moveTo(zTargetPosition);
-    stepperE1.moveTo(e1TargetPosition);
-    stepperE2.moveTo(e2TargetPosition);
+    if (yPotValue != prevYPotValue)
+    {
+        int yTargetPosition = map(yPotValue, 0, 1023, 0, STEPS_PER_REV_Y);
+        stepperY.moveTo(yTargetPosition);
+        prevYPotValue = yPotValue;
+    }
 
+    if (zPotValue != prevZPotValue)
+    {
+        int zTargetPosition = map(zPotValue, 0, 1023, 0, STEPS_PER_REV_Z);
+        stepperZ.moveTo(zTargetPosition);
+        prevZPotValue = zPotValue;
+    }
+
+    if (e1PotValue != prevE1PotValue)
+    {
+        int e1TargetPosition = map(e1PotValue, 0, 1023, 0, STEPS_PER_REV_E1);
+        stepperE1.moveTo(e1TargetPosition);
+        prevE1PotValue = e1PotValue;
+    }
+
+    if (e2PotValue != prevE2PotValue)
+    {
+        int e2TargetPosition = map(e2PotValue, 0, 1023, 0, STEPS_PER_REV_E2);
+        stepperE2.moveTo(e2TargetPosition);
+        prevE2PotValue = e2PotValue;
+    }
+
+    // Run the stepper movements
     stepperX.run();
     stepperY.run();
     stepperZ.run();
     stepperE1.run();
     stepperE2.run();
+
+    // int xTargetPosition = map(xPotValue, 0, 1023, 0, STEPS_PER_REV_X);
+    // int yTargetPosition = map(yPotValue, 0, 1023, 0, STEPS_PER_REV_Y);
+    // int zTargetPosition = map(zPotValue, 0, 1023, 0, STEPS_PER_REV_Z);
+    // int e1TargetPosition = map(e1PotValue, 0, 1023, 0, STEPS_PER_REV_E1);
+    // int e2TargetPosition = map(e2PotValue, 0, 1023, 0, STEPS_PER_REV_E2);
+
+    // stepperX.moveTo(xTargetPosition);
+    // stepperY.moveTo(yTargetPosition);
+    // stepperZ.moveTo(zTargetPosition);
+    // stepperE1.moveTo(e1TargetPosition);
+    // stepperE2.moveTo(e2TargetPosition);
+
+    // stepperX.run();
+    // stepperY.run();
+    // stepperZ.run();
+    // stepperE1.run();
+    // stepperE2.run();
 
     button.update();
 

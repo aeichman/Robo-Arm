@@ -12,7 +12,8 @@ Claw - In /Models/Claw
 
 Arduino Mega <br />
 Ramps 1.4 <br />
-DRV8825 (x6) <br />
+DRV8825 (x5) <br />
+A4988 (for the expansion board and claw) <br />
 Nema 17 Bipolar 40mm 45Ncm 2A (x2) <br />
 Nema 17 Stepper Motor with 5:1 Planetary Gearbox <br />
 Nema 14 Stepper Motor Bipolar 0.5A 7Ncm 0.9deg <br />
@@ -34,6 +35,8 @@ Stepper motor expansion board <br />
 Setting up stepper motors with the code before assembly is recommended to ensure they are moving in the correct direction. Failure to do so can result in broken parts or torn timing belts. <br/>
 
 Use a piece of patching cloth and super glue to cut and connect GT2 Timing belts to the correct lengths. This can be demonstrated here (https://www.youtube.com/watch?v=T9wjR0HEk3I). <br/>
+
+In each DRV8825 slot there are 6 microstepping pins. On axis X, Z, E0, and E1 using a jumper, connect the m3 pins to enable 1/16 microstepping. For the Y axis jump m2 for 1/8 microstepping and on the expansion board, turn on switches 1 & 2 (m1 & m2) for 1/8 microstepping.
 
 # Code
 
