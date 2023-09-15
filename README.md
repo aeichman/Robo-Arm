@@ -38,6 +38,16 @@ Use a piece of patching cloth and super glue to cut and connect GT2 Timing belts
 
 In each DRV8825 slot there are 6 microstepping pins. On axis X, Z, E0, and E1 using a jumper, connect the m3 pins to enable 1/16 microstepping. For the Y axis jump m2 for 1/8 microstepping and on the expansion board, turn on switches 1 & 2 (m1 & m2) for 1/8 microstepping.
 
+# DRV8845 & A4988 Vref
+
+Plug driver into Ramps 1.4 board and connect power supply. Using a mulitmeter, touch the positive probe to the potentiometer and the negative to GND. Adjust multimeter to the Vref calcuated by the following equations. <br/>
+
+C = Current Limit of Steppper Motor <br/>
+Rs = Current sensor resistor <br/>
+
+DRV8845: Vref = C / 2 <br/>
+A4988: Vref = C _ 8 _ Rs <br/>
+
 # Code
 
 Test each individal stepper motor driver with StepperSetup.cc <br/>
