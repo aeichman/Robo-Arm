@@ -52,4 +52,4 @@ A4988: Vref = C _ 8 _ Rs <br/>
 
 Test each individal stepper motor driver with StepperSetup.cc <br/>
 
-If a stepper motor is moving in the opposite direction from poteniometer, unplug the motor and plug it in backwards <br/>
+If a stepper motor is moving in the opposite direction from potentiometer, unplug the motor and plug it in backwards <br/>
