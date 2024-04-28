@@ -36,11 +36,11 @@ Setting up stepper motors with the code before assembly is recommended to ensure
 
 Use a piece of patching cloth and super glue to cut and connect GT2 Timing belts to the correct lengths. This can be demonstrated here (https://www.youtube.com/watch?v=T9wjR0HEk3I). <br/>
 
-In each DRV8825 slot there are 6 microstepping pins. On axis X, Z, E0, and E1 using a jumper, connect the m3 pins to enable 1/16 microstepping. For the Y axis jump m2 for 1/8 microstepping and on the expansion board, turn on switches 1 & 2 (m1 & m2) for 1/8 microstepping.
+In each DRV8825 slot, there are 6 micro-stepping pins. On axes X, Z, E0, and E1 using a jumper, connect the m3 pins to enable 1/16 micro-stepping. For the Y-axis jump m2 for 1/8 micro-stepping and on the expansion board, turn on switches 1 & 2 (m1 & m2) for 1/8 micro-stepping.
 
 # DRV8845 & A4988 Vref
 
-Plug driver into Ramps 1.4 board and connect power supply. Using a mulitmeter, touch the positive probe to the potentiometer and the negative to GND. Adjust multimeter to the Vref calcuated by the following equations. <br/>
+Plug driver into the Ramps 1.4 board and connect the power supply. Using a multimeter, touch the positive probe to the potentiometer and the negative to GND. Adjust the multimeter to the Vref calculated by the following equations. <br/>
 
 C = Current Limit of Steppper Motor <br/>
 Rs = Current sensor resistor <br/>
@@ -50,6 +50,4 @@ A4988: Vref = C _ 8 _ Rs <br/>
 
 # Code
 
-Test each individal stepper motor driver with StepperSetup.cc <br/>
-
-If a stepper motor is moving in the opposite direction from potentiometer, unplug the motor and plug it in backwards <br/>
+Test each stepper motor driver with StepperSetup.cc to ensure proper direction <br/>
